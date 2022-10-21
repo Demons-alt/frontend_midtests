@@ -5,25 +5,10 @@ const GetSummary = () => {
     const [tickets, setTickets] = useState([])
 
     useEffect(() => {
-    //   getAuth()
       getSummary()
     }, [])
-    function getToken(userToken) {
-        try {
-          const tokenString = sessionStorage.getItem("token");
-          const userToken = JSON.parse(tokenString);
-        } catch (error) {
-        //   history("/login");
-        }
-      }
     const Token = JSON.parse(sessionStorage.getItem("token"))
 
-    // const getAuth = axios.create({
-    //     baseURL: "http://localhost:3001/ticket/summary",
-    //     headers : {
-    //         'Authorization' : `bearer ${Token}` 
-    //     }
-    // })
    
     const getSummary = async()=> {
         const response = await axios.get('http://localhost:3001/ticket/summary',{
